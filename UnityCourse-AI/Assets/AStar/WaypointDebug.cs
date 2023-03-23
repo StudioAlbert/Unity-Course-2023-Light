@@ -5,7 +5,6 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class WaypointDebug : MonoBehaviour {
 
-	
 	void RenameWPs(GameObject overlook)
 	{
 		GameObject[] gos;
@@ -28,12 +27,12 @@ public class WaypointDebug : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		if(name != "WayPoint") return;
+		if(this.transform.parent.gameObject.name != "WayPoint") return;
 		RenameWPs(null);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		this.GetComponentInChildren<TextMesh>().text = name;
+		this.GetComponent<TextMesh>().text = this.transform.parent.gameObject.name;
 	}
 }
